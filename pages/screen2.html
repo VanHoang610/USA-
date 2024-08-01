@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chọn quà</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      function hanldeJoin() {
+        window.location.href = "screen3.html"; // Đường dẫn đến trang bạn muốn chuyển hướng đến
+      }
+    </script>
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="wrapperLogo">
+          <img class="logo" src="../asset/image/logo.png" />
+        </div>
+        <img
+          class="imageSelectBerries"
+          src="../asset/image/image_select_berries.png"
+        />
+
+        <div class="wrapper-home">
+          <img class="imageHome" src="../asset/image/home.png" />
+          <div class="wrapper-berries">
+            <img
+              class="berries"
+              src="../asset/image/berries.png"
+              onclick="hanldeJoin()"
+            />
+            <img
+              class="berries"
+              src="../asset/image/berries.png"
+              onclick="hanldeJoin()"
+            />
+            <img
+              class="berries"
+              src="../asset/image/berries.png"
+              onclick="hanldeJoin()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
