@@ -5,11 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chọn quà</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <script>
+      function selectBonus() {
+        const options = ["book", "pen", "face mask"];
+
+        const randomIndex = Math.floor(Math.random() * options.length);
+        const selectedOption = options[randomIndex];
+
+        if (selectedOption) {
+          const imageSelectBerries = document.querySelector(
+            ".imageSelectBerries"
+          );
+
+          const wrapperHome = document.querySelector(".wrapper-home");
+          const toggleBonus = document.querySelector(".toggleBonus");
+
+          const btnBonus = document.querySelector(".btnBonus");
+          const imageBonus = document.querySelector(".imageBonus");
+          const textBonus = document.querySelector(".textBonus");
+          const imageBox = document.querySelector(".imageBox");
+
+          if (imageSelectBerries) {
+            wrapperHome.classList.add("dp_n");
+            toggleBonus.classList.add("dp_b");
+            btnBonus.classList.add("dp_b");
+            imageSelectBerries.style.marginTop = "0";
+            imageSelectBerries.src = "../asset/image/logo_srceen3.png";
+            imageSelectBerries.style.marginTop = "-35px";
+            const imageHome = document.querySelector(".imageHome");
+            imageHome.src = "../asset/image/iconColor.png";
+            imageHome.style.width = "277px";
+            imageHome.style.height = "208px";
+          }
+          switch (selectedOption) {
+            case "book":
+              imageBonus.src = "../asset/image/bookBonus.png";
+              textBonus.innerText = "SÁCH BLUEBERRY";
+              break;
+            case "pen":
+              imageBonus.src = "../asset/image/penBonus.png";
+              textBonus.innerText = "BÚT BLUEBERRY";
+              break;
+            case "face mask":
+              imageBonus.src = "../asset/image/faceMaskBonus.png";
+              textBonus.innerText = "KHẨU TRANG BLUEBERRY";
+              break;
+            default:
+              console.log("Chưa xác định mục nào.");
+              break;
+          }
+
+          setTimeout(() => {
+            imageBonus.classList.add("show");
+            textBonus.classList.add("show");
+            btnBonus.classList.add("show");
+            imageBox.classList.add("show");
+          }, 1000);
+        }
+      }
+    </script>
+
+    <script>
       function hanldeJoin() {
-        window.location.href = "screen3.html"; // Đường dẫn đến trang bạn muốn chuyển hướng đến
+        window.location.href = "screen4.html";
       }
     </script>
 
@@ -29,19 +93,33 @@
             <img
               class="berries"
               src="../asset/image/berries.png"
-              onclick="hanldeJoin()"
+              onclick="selectBonus()"
             />
             <img
               class="berries"
               src="../asset/image/berries.png"
-              onclick="hanldeJoin()"
+              onclick="selectBonus()"
             />
             <img
               class="berries"
               src="../asset/image/berries.png"
-              onclick="hanldeJoin()"
+              onclick="selectBonus()"
             />
           </div>
+        </div>
+        <div class="toggleBonus">
+          <div class="wrapper-bonus">
+            <img class="imageColor" src="../asset/image/iconColor.png" />
+            <img class="imageBox" src="../asset/image/box.png" />
+            <img class="imageBonus" src="../asset/image/bookBonus.png" />
+            <p class="textBonus">SÁCH BLUEBERREY</p>
+          </div>
+        </div>
+
+        <div class="btnBonus">
+          <button class="btn" onclick="hanldeJoin()">
+            Tham gia khảo sát để nhận quà
+          </button>
         </div>
       </div>
     </div>

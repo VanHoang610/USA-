@@ -1,11 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USA Blue Berries</title>
+    <link rel="stylesheet" href="pages/style.css" />
+  </head>
+
+  <body>
+    <script>
+      function hanldeJoin() {
+        const name = document.getElementById("inputName").value.trim();
+        const age = document.getElementById("inputAge").value.trim();
+        const gender = document.getElementById("inputGender").value;
+        const phone = document.getElementById("inputPhone").value.trim();
+        const supermarket = document.getElementById("inputSupermarket").value;
+
+        let isValid = true;
+
+        if (!name) {
+          document.getElementById("error-name").style.display = "block";
+          isValid = false;
+        } else {
+          document.getElementById("error-name").style.display = "none";
+        }
+
+        if (!age || isNaN(age) || age <= 0) {
+          document.getElementById("error-age").style.display = "block";
+          isValid = false;
+        } else {
+          document.getElementById("error-age").style.display = "none";
+        }
+
+        if (!gender) {
+          document.getElementById("error-gender").style.display = "block";
+          isValid = false;
+        } else {
+          document.getElementById("error-gender").style.display = "none";
+        }
+
+        const phoneRegex = /^[0-9]{10,11}$/;
+        if (!phone || !phoneRegex.test(phone)) {
+          document.getElementById("error-phone").style.display = "block";
+          isValid = false;
+        } else {
+          document.getElementById("error-phone").style.display = "none";
+        }
+
+        if (!supermarket) {
+          document.getElementById("error-supermarket").style.display = "block";
+          isValid = false;
+        } else {
+          document.getElementById("error-supermarket").style.display = "none";
+        }
+
+        if (isValid) {
+          location.href = "./pages/screen2.html";
+        }
+      }
+    </script>
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="wrapperLogo">
+          <img class="logo" src="../asset/image/logo.png" />
+        </div>
+        <div class="wrapper-enter-info">
+          <div class="content-info">
+            <p class="title">Vui lòng nhập đầy đủ các thông tin bên dưới</p>
+            <input
+              id="inputName"
+              class="input input-name"
+              placeholder="Họ và tên"
+            />
+            <p id="error-name" class="error">Vui lòng nhập họ và tên.</p>
+            <div class="wrapper-input">
+              <input
+                id="inputAge"
+                class="input input-select"
+                placeholder="Tuổi"
+                type="number"
+              />
+
+              <select
+                id="inputGender"
+                class="input input-select"
+                placeholder="Giới tính"
+              >
+                <option class="optionGender" value="" disabled selected hidden>
+                  Giới tính
+                </option>
+                <option class="optionGender">Nam</option>
+                <option class="optionGender">Nữ</option>
+              </select>
+            </div>
+            <div class="wrapper-validate">
+              <p id="error-age" class="error">Nhập tuổi</p>
+              <p id="error-gender" class="error">Chọn giới tính.</p>
+            </div>
+            <input
+              id="inputPhone"
+              class="input input-name"
+              placeholder="Số điện thoại"
+            />
+            <p id="error-phone" class="error">
+              Vui lòng nhập số điện thoại hợp lệ.
+            </p>
+            <select
+              id="inputSupermarket"
+              class="input input-name"
+              placeholder="Siêu thị tham gia"
+            >
+              <option value="" disabled selected hidden>
+                Siêu thị tham gia
+              </option>
+              <option value="bhx">Bách hóa xanh</option>
+              <option value="dmx">Điện máy xanh</option>
+              <option value="emart">Emart</option>
+            </select>
+            <p id="error-supermarket" class="error">
+              Vui lòng chọn siêu thị tham gia.
+            </p>
+            <div class="btnJoin">
+              <button class="btn" onclick="hanldeJoin()">THAM GIA</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
